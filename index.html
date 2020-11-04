@@ -18,7 +18,7 @@
   <div class="new-note">
       <input v-model="note.title" type="text">
       <textarea v-model="note.descr"></textarea>
-      <button @click="AddNote">New note</button>
+      <button @click="addNote">New note</button>
   </div>
 
   <!-- note list -->
@@ -77,6 +77,13 @@
                   descr,
                   date: new Date(Date.now()).toLocaleString()
               })
+              const methods = {
+   addNote () {
+        this.ADD_NOTE(this.newNote) // technically this will work but is not recommended 
+        this.$store.dispatch('addNote') // ERROR
+        this.$store.dispatch.Vuex_ACTION;
+      }
+};
               this.note.title = ''
               this.note.descr = ''
               this.message = null
